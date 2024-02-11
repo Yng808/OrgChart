@@ -1,14 +1,43 @@
-﻿@inject IJSRuntime JSRuntime
+﻿@using OrgChart.Models
+@using System.Text.Json
+@inject IJSRuntime JSRuntime
 @rendermode InteractiveServer
 
 <div class="chart-container"></div>
 
 @code {
+
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
+        List<Person> people = new List<Person>
+        {
+            new Person
+            {
+                Id = "100",
+                ParentId = "", // Assuming root node has no parent
+                Name = "Cowboy",
+                LastName = "Bebop",
+                Position = "Level 100 Assassin",
+                Image = "https://bumbeishvili.github.io/avatars/avatars/portrait12.png"
+            },
+            new Person
+            {
+                Id = "101",
+                ParentId = "100", // This person reports to Steven
+                Name = "Goku",
+                LastName = "Kakarot",
+                Position = "",
+                Image = "https://bumbeishvili.github.io/avatars/avatars/portrait85.png"
+            }
+            // Add more Person objects as needed
+        };
+
+        var jsonPeople = JsonSerializer.Serialize(people);
+
         if (firstRender)
         {
-            await JSRuntime.InvokeVoidAsync("initChart");
+            //await JSRuntime.InvokeVoidAsync("initChart");
+            await JSRuntime.InvokeVoidAsync("initChartWithJson", jsonPeople);
         }
     }
 }
