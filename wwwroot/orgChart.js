@@ -56,12 +56,12 @@ function initChartWithJson(jsonData) {
         .compactMarginPair((d) => 30)
         .neighbourMargin((a, b) => 20)
         .nodeContent(function (d, i, arr, state) {
-            const color = '#FFFFFF';
+            const color = '#FFFFF1';
             const imageDiffVert = 25 + 2;
             const leaderContent = d.data.officeLeader ? `<div style="color:#716E7B;margin-left:20px;margin-top:3px;font-size:10px;">Leader: ${d.data.officeLeader}</div>` : '';
             return `
-                <div style='width:${d.width}px;height:${d.height}px;padding-top:${imageDiffVert - 2}px;padding-left:1px;padding-right:1px'>
-                    <div style="font-family: 'Inter', sans-serif;background-color:${color};  margin-left:-1px;width:${d.width - 2}px;height:${d.height - imageDiffVert}px;border-radius:10px;border: 1px solid #E4E2E9">
+                <div style='width:${d.width}px;height:${d.height}px;padding-top:${imageDiffVert - 2}px;padding-left:1px;padding-right:1px;'>
+                    <div style="font-family: 'Inter', sans-serif;background-color:${color};  margin-left:-1px;width:${d.width - 2}px;height:${d.height - imageDiffVert}px;border-radius:10px;border: 1px solid #E4E2E9;">
                         <div style="display:flex;justify-content:flex-end;margin-top:5px;margin-right:8px">${d.data.id}</div>
                         <div style="background-color:${color};margin-top:${-imageDiffVert - 20}px;margin-left:${15}px;border-radius:100px;width:50px;height:50px;" ></div>
                         <div style="margin-top:${-imageDiffVert - 20}px;">   
@@ -79,6 +79,9 @@ function initChartWithJson(jsonData) {
         .data(data) // Use the parsed data here
         .render();
 
-    //chart.compact(false).render().fit();
+    chart.compact(false).render().fit();
+
+
+
     chart.expandAll().fit()
 }
