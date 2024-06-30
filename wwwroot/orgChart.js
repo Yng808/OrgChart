@@ -58,6 +58,7 @@ function initChartWithJson(jsonData) {
         .nodeContent(function (d, i, arr, state) {
             const color = '#FFFFFF';
             const imageDiffVert = 25 + 2;
+            const leaderContent = d.data.officeLeader ? `<div style="color:#716E7B;margin-left:20px;margin-top:3px;font-size:10px;">Leader: ${d.data.officeLeader}</div>` : '';
             return `
                 <div style='width:${d.width}px;height:${d.height}px;padding-top:${imageDiffVert - 2}px;padding-left:1px;padding-right:1px'>
                     <div style="font-family: 'Inter', sans-serif;background-color:${color};  margin-left:-1px;width:${d.width - 2}px;height:${d.height - imageDiffVert}px;border-radius:10px;border: 1px solid #E4E2E9">
@@ -68,7 +69,7 @@ function initChartWithJson(jsonData) {
                         </div>
                         <div style="font-size:15px;color:#08011E;margin-left:20px;margin-top:10px">  ${d.data.name} </div>
                         <div style="color:#716E7B;margin-left:20px;margin-top:3px;font-size:10px;"> ${d.data.position} </div>
-                        <div style="color:#716E7B;margin-left:20px;margin-top:3px;font-size:10px;"> Leader: ${d.data.officeLeader } </div>
+                        ${leaderContent}
                     </div>
                 </div>`;
         })
@@ -77,4 +78,7 @@ function initChartWithJson(jsonData) {
         .container('.chart-container')
         .data(data) // Use the parsed data here
         .render();
+
+    //chart.compact(false).render().fit();
+    chart.expandAll().fit()
 }
