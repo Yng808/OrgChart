@@ -14,19 +14,50 @@
             new Person
             {
                 Id = "100",
-                ParentId = "", // Assuming root node has no parent
-                Name = "Cowboy",
-                LastName = "Bebop",
-                Position = "Level 100 Assassin",
-                Image = "https://bumbeishvili.github.io/avatars/avatars/portrait12.png"
+                ParentId = "", 
+                Name = "C109",
+                LastName = "",
+                Position = "IT Department",
+                Image = "https://bumbeishvili.github.io/avatars/avatars/portrait12.png",
+                OfficeLeader = "Randy Chang"
             },
             new Person
             {
                 Id = "101",
-                ParentId = "100", // This person reports to Steven
-                Name = "Goku",
-                LastName = "Kakarot",
-                Position = "",
+                ParentId = "100", 
+                Name = "C109.1",
+                LastName = "",
+                Position = "Network Division",
+                Image = "https://bumbeishvili.github.io/avatars/avatars/portrait85.png",
+                OfficeLeader = "Bob Hong"
+            },
+            new Person
+            {
+                Id = "102",
+                ParentId = "101", 
+                Name = "C109.11",
+                LastName = "",
+                Position = "Network Division",
+                Image = "https://bumbeishvili.github.io/avatars/avatars/portrait85.png",
+                OfficeLeader = "Holly Sasaki"
+            },
+            new Person
+            {
+                Id = "103",
+                ParentId = "101", 
+                Name = "C109.12",
+                LastName = "",
+                Position = "Network Division",
+                Image = "https://bumbeishvili.github.io/avatars/avatars/portrait85.png",
+                OfficeLeader = "Dustin Lopiccolo"
+            },
+            new Person
+            {
+                Id = "104",
+                ParentId = "101",
+                Name = "C109.13",
+                LastName = "",
+                Position = "Network Division",
                 Image = "https://bumbeishvili.github.io/avatars/avatars/portrait85.png"
             }
             // Add more Person objects as needed
